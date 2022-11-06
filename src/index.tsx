@@ -9,7 +9,9 @@ const App = () => {
   return (
     <View>
       <Product />
-      <Text>Hello</Text>
+      <View className="bg-black">
+        <Text>way</Text>
+      </View>
     </View>
   );
 };
