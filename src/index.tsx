@@ -2,16 +2,14 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 
-import { Product } from './screens';
-import { Text, View } from './ui';
+import { Offers } from './screens';
+import { View } from './ui';
 
 const App = () => {
   return (
     <View>
-      <Product />
-      <View className="bg-black">
-        <Text>way</Text>
-      </View>
+      <Offers />
+      <View className="h-72 bg-blue-500" />
     </View>
   );
 };
