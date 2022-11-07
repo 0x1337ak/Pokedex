@@ -17,42 +17,48 @@ const AnimView = Animated.createAnimatedComponent(View);
 export function ProductBasket({ callBack, value = 1 }: Props) {
   const sharedVal = useSharedValue('100%');
   const animatedStyle = useAnimatedStyle(() => {
-    sharedVal.value = value > 0 ? '100%' : '0%';
+    sharedVal.value = value > 0 ? '100%' : '33%';
     return {
       width: withTiming(sharedVal.value, { duration: 300 }),
     };
   }, [value]);
 
   return (
-    <AnimView
-      className="absolute bottom-0 right-0 m-1  w-full justify-end overflow-hidden"
-      style={animatedStyle}
-    >
-      <View className="bottom-0 left-0 z-50 flex h-10 flex-row   items-center rounded-3xl bg-[#F4D97C] ">
-        <View className="h-7 w-8 rounded-full">
-          <Pressable
-            className="h-full max-w-full"
-            onPress={() => callBack((prev) => prev - 1)}
-          >
-            <View className="m-auto">
-              <Trash color="#333" />
-            </View>
-          </Pressable>
+    <View>
+      <AnimView
+        className="absolute bottom-0 right-0 h-10  w-full bg-gray-200"
+        style={animatedStyle}
+      />
+      <AnimView
+        className="absolute bottom-0 right-0  h-10  w-full justify-end overflow-hidden rounded-3xl bg-[#F4D97C]"
+        style={animatedStyle}
+      >
+        <View className="absolute bottom-0 right-0 z-50 flex h-10 w-32 flex-row  items-center  px-1">
+          <View className="h-7 w-8 rounded-full">
+            <Pressable
+              className="h-full max-w-full"
+              onPress={() => callBack((prev) => prev - 1)}
+            >
+              <View className="m-auto">
+                <Trash color="#333" />
+              </View>
+            </Pressable>
+          </View>
+          <View className="h-full flex-1">
+            <Text className="m-auto">{value}</Text>
+          </View>
+          <View className="h-7 w-8 rounded-full  ">
+            <Pressable
+              className="h-full w-full"
+              onPress={() => callBack((prev) => prev + 1)}
+            >
+              <View className="m-auto">
+                <PlusThin color="#333" />
+              </View>
+            </Pressable>
+          </View>
         </View>
-        <View className="h-full flex-1">
-          <Text className="m-auto">{value}</Text>
-        </View>
-        <View className="h-7 w-8 rounded-full  ">
-          <Pressable
-            className="h-full w-full"
-            onPress={() => callBack((prev) => prev + 1)}
-          >
-            <View className="m-auto">
-              <PlusThin color="#333" />
-            </View>
-          </Pressable>
-        </View>
-      </View>
-    </AnimView>
+      </AnimView>
+    </View>
   );
 }
