@@ -3,6 +3,7 @@ export * from './feed';
 export * from './github';
 export * from './home';
 export * from './language';
+export * from './minus';
 export * from './no-data';
 export * from './plus';
 export * from './plus-thin';

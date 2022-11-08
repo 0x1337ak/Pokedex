@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-import { PlusThin, Pressable, Text, Trash, View } from '@/ui';
+import { Minus, PlusThin, Pressable, Text, Trash, View } from '@/ui';
 interface Props {
   callBack: React.Dispatch<React.SetStateAction<number>>;
   value: Number & ReactNode;
@@ -22,7 +22,7 @@ export function ProductBasket({ callBack, value = 1 }: Props) {
     widthSharedVal.value = value ? '100%' : '33%';
 
     return {
-      width: withTiming(widthSharedVal.value, { duration: 300 }),
+      width: withTiming(widthSharedVal.value, { duration: 150 }),
       backgroundColor: withTiming(value ? '#F4D97C' : '#FFC801'),
     };
   }, [value]);
@@ -32,7 +32,7 @@ export function ProductBasket({ callBack, value = 1 }: Props) {
     widthSharedVal.value = withTiming(value > 0 ? '100%' : '33%');
     const colors = interpolateColor(
       progress.value,
-      [0, 1],
+      [0, 0.5],
       ['#e5e7eb', '#FFC801']
     );
     return {
@@ -58,7 +58,7 @@ export function ProductBasket({ callBack, value = 1 }: Props) {
               onPress={() => callBack((prev) => prev - 1)}
             >
               <View className="m-auto">
-                <Trash color="#333" />
+                {value == 1 ? <Trash color="#333" /> : <Minus color="#333" />}
               </View>
             </Pressable>
           </View>
