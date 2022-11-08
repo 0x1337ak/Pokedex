@@ -44,7 +44,7 @@ export const Product = () => {
         <Text className="text-sm text-gray-400">180 g</Text>
       </View>
 
-      <View className="m-1 flex-auto">
+      <View className="m-1 mb-0 flex-auto">
         <View className="flex flex-row rounded-xl">
           <View className="flex-1 ">
             <Text className="text-xs text-red-700 line-through">1.70$</Text>
