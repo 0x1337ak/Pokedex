@@ -74,7 +74,7 @@
     "@expo/config": "^7.0.1",
     "@jamesacarr/eslint-formatter-github-actions": "^0.1.0",
     "@react-native-community/eslint-config": "^3.1.0",
-    "@types/i18n-js": "^3.8.2",
+    "@types/i18n-js": "^3.8.3",
     "@types/lodash.memoize": "^4.1.7",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.69.6",
