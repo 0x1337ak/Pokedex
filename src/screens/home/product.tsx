@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
-import Animated, {
-  useAnimatedStyle,
-  withTiming,
-} from 'react-native-reanimated';
+import { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
-import { Image, Text, View } from '@/ui';
+import { AnimView, Image, Text, View } from '@/ui';
 
 import { Ripple } from '../common';
 import { ProductBasket } from './product-basket';
-const AnimView = Animated.createAnimatedComponent(View);
+
 export const Product = () => {
   const [count, setCount] = useState(0);
 
   const slide = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: withTiming(count > 0 ? -45 : 0) }],
+      opacity: withTiming(count > 0 ? 1 : 0),
     };
   }, [count]);
 
   return (
-    <View className="m-1 flex h-auto w-32 overflow-hidden rounded-xl bg-gray-200">
+    <View className="m-1 flex h-auto w-32  overflow-hidden rounded-xl bg-gray-100">
       <View className="absolute top-0 left-0 z-10 m-1 flex w-full flex-row justify-around p-2">
         <Text className="rounded-lg bg-orange-600 p-1 text-sm text-white">
           -25%
