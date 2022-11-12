@@ -2,15 +2,18 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 
-import { Carousel, Offers } from './screens';
-import { View } from './ui';
+import { ScrollView } from '@/ui';
+
+import { CardCarousel, Offers } from './screens';
+import { Categories } from './screens/home/categories';
 
 const App = () => {
   return (
-    <View>
-      <Carousel />
+    <ScrollView>
+      <CardCarousel />
       <Offers />
-    </View>
+      <Categories />
+    </ScrollView>
   );
 };
 

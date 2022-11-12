@@ -1,3 +1,3 @@
-export * from './carousel';
+export * from './card-carousel';
 export * from './offers';
 export * from './product';
