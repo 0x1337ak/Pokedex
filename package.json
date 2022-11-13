@@ -48,6 +48,7 @@
     "i18next": "^22.0.4",
     "lodash.memoize": "^4.1.2",
     "nativewind": "^2.0.10",
+    "pokenode-ts": "^1.17.0",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-error-boundary": "^3.1.4",

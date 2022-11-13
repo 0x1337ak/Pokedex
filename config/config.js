@@ -11,7 +11,9 @@ const development = {
   scheme: `${SCHEME}.development`,
   icon: './assets/icon.development.jpeg',
   foregroundImage: './assets/icon.development.jpeg',
-  API_URL: 'https://dummyjson.com/',
+  API_URL: {
+    pokemonListType_URL: 'https://pokeapi.co/api/v2/type/',
+  },
   version: packageJSON.version,
 };
 
@@ -21,7 +23,9 @@ const staging = {
   scheme: `${SCHEME}.staging`,
   icon: './assets/icon.staging.jpeg',
   foregroundImage: './assets/icon.staging.jpeg',
-  API_URL: 'https://dummyjson.com/',
+  API_URL: {
+    pokemonListType_URL: 'https://pokeapi.co/api/v2/type/',
+  },
   version: packageJSON.version,
 };
 const production = {
@@ -30,7 +34,9 @@ const production = {
   scheme: `${SCHEME}`,
   icon: './assets/icon.jpeg',
   foregroundImage: './assets/icon.jpeg',
-  API_URL: 'https://dummyjson.com/',
+  API_URL: {
+    pokemonListType_URL: 'https://pokeapi.co/api/v2/type/',
+  },
   version: packageJSON.version,
 };
 
