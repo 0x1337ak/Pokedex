@@ -2,15 +2,21 @@ import 'react-native-gesture-handler';
 
 import React from 'react';
 
-import { Offers } from './screens';
-import { View } from './ui';
+import { ScrollView } from '@/ui';
+
+import { APIProvider } from './api';
+import { CardCarousel, Offers } from './screens';
+import { Categories } from './screens/home/pokemon-list-types';
 
 const App = () => {
   return (
-    <View>
+    <ScrollView>
+      <CardCarousel />
       <Offers />
-      <View className="h-72 bg-blue-500" />
-    </View>
+      <APIProvider>
+        <Categories />
+      </APIProvider>
+    </ScrollView>
   );
 };
 

@@ -1,18 +1,18 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import Animated, {
+import {
   interpolateColor,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 
-import { Minus, PlusThin, Pressable, Text, Trash, View } from '@/ui';
+import { AnimView, Minus, PlusThin, Pressable, Text, Trash, View } from '@/ui';
+import colors from '@/ui/theme/colors';
 interface Props {
   callBack: React.Dispatch<React.SetStateAction<number>>;
   value: Number & ReactNode;
 }
-const AnimView = Animated.createAnimatedComponent(View);
 
 export function ProductBasket({ callBack, value = 1 }: Props) {
   const widthSharedVal = useSharedValue(value ? '100%' : '33%');
@@ -23,28 +23,30 @@ export function ProductBasket({ callBack, value = 1 }: Props) {
 
     return {
       width: withTiming(widthSharedVal.value, { duration: 150 }),
-      backgroundColor: withTiming(value ? '#F4D97C' : '#FFC801'),
+      backgroundColor: withTiming(
+        value ? colors.appLightPrimary : colors.appPrimary
+      ),
     };
   }, [value]);
 
   const bgWidthAnimated = useAnimatedStyle(() => {
-    progress.value = withTiming(value ? 1 : 0);
+    progress.value = withTiming(value ? 1 : 0, { duration: 300 });
     widthSharedVal.value = withTiming(value > 0 ? '100%' : '33%');
-    const colors = interpolateColor(
+    const bgColors = interpolateColor(
       progress.value,
-      [0, 0.5],
-      ['#e5e7eb', '#FFC801']
+      [0, 1],
+      [colors.transparent, colors.appPrimary]
     );
     return {
       width: widthSharedVal.value,
-      backgroundColor: colors,
+      backgroundColor: bgColors,
     };
   }, [value]);
 
   return (
     <View className="m-1">
       <AnimView
-        className="absolute bottom-1 right-0  h-10   bg-gray-200"
+        className="absolute bottom-1 right-0  h-10  "
         style={bgWidthAnimated}
       />
       <AnimView
@@ -58,7 +60,7 @@ export function ProductBasket({ callBack, value = 1 }: Props) {
               onPress={() => callBack((prev) => prev - 1)}
             >
               <View className="m-auto">
-                {value == 1 ? <Trash color="#333" /> : <Minus color="#333" />}
+                {value === 1 ? <Trash color="#333" /> : <Minus color="#333" />}
               </View>
             </Pressable>
           </View>
