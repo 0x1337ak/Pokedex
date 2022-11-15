@@ -1,3 +1,3 @@
 export * from './card-carousel';
-export * from './offers';
-export * from './product';
+export * from './pokemon-card';
+export * from './pokemons';

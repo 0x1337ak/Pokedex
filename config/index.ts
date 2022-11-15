@@ -2,7 +2,7 @@
 // unfortunately, we cant use typescript config inside expo config file
 import { Config as NConfig } from './config.js';
 
-type API_URL_Type = { pokemonListType_URL: string };
+type API_URL_Type = { pokemonListTypes: string; pokemonList: string };
 // TODO: check how we can use typescript for this
 type APP_ENV_Type = 'development' | 'staging' | 'production';
 type ConfigType = {

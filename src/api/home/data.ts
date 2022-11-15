@@ -1,3 +1,5 @@
+import type { PokemonTypeSprites } from './types';
+
 export const pokemonTypeSprites: PokemonTypeSprites = {
   normal:
     'https://static.wikia.nocookie.net/pokemon/images/1/13/053Persian.png/revision/latest?cb=20140328195856',
@@ -35,7 +37,3 @@ export const pokemonTypeSprites: PokemonTypeSprites = {
   shadow:
     'https://static.wikia.nocookie.net/pokemon/images/8/89/802Marshadow.png/revision/latest?cb=20180707005932',
 };
-
-interface PokemonTypeSprites {
-  [key: string]: string;
-}

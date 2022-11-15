@@ -12,7 +12,8 @@ const development = {
   icon: './assets/icon.development.jpeg',
   foregroundImage: './assets/icon.development.jpeg',
   API_URL: {
-    pokemonListType_URL: 'https://pokeapi.co/api/v2/type/',
+    pokemonListTypes: 'https://pokeapi.co/api/v2/type/',
+    pokemonList: 'https://pokeapi.co/api/v2/pokemon/',
   },
   version: packageJSON.version,
 };
