@@ -7,7 +7,7 @@ type pokemon = { name: string; url: string };
 type Response = pokemon[];
 
 function getPokemonList(): Promise<Response> {
-  return pokemonList({ url: '?offset=0&limit=99', method: 'GET' }).then(
+  return pokemonList({ url: '?offset=0&limit=9999', method: 'GET' }).then(
     (response) => response.data.results
   );
 }
