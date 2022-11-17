@@ -17,8 +17,10 @@ export const Pokemons = () => {
   );
 
   return (
-    <View className="ml-1 h-[100%]">
-      <Input />
+    <View className="h-[100%] pl-1">
+      <View className=" p-3">
+        <Input />
+      </View>
       <FlatList
         renderItem={renderItem}
         data={data}

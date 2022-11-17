@@ -11,7 +11,6 @@ export const PokemonCard = (pokeInfo: PokemonProps & { index: number }) => {
   return (
     <View className="m-2 flex h-auto w-28  overflow-hidden rounded-xl border-2 border-green-400 bg-gray-100">
       <Pressable
-        className="bg-red-400"
         onPress={() => {
           navigator.navigate('PokemonInfo');
         }}

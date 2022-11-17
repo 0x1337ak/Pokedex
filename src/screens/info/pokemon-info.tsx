@@ -2,7 +2,9 @@ import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import type { SvgProps } from 'react-native-svg';
 
-import { Image, Plus, Text, View } from '@/ui';
+import { Image, Text, View } from '@/ui';
+import { Ruler } from '@/ui/icons/ruler';
+import { WeightScale } from '@/ui/icons/weight-scale';
 
 import { PokemonStatsBar } from './pokemon-stat-bar';
 
@@ -19,7 +21,7 @@ export const PokemonInfo = () => {
             }}
           />
         </View>
-        <View className="m-2 flex h-[70vh] items-center rounded-xl bg-white">
+        <View className="m-2 flex min-h-[70vh] items-center rounded-xl bg-white">
           <View className="mt-10 flex w-full ">
             <View className="flex flex-row justify-center">
               <Text className="m-1 rounded-xl bg-green-500 px-2  text-white">
@@ -32,16 +34,16 @@ export const PokemonInfo = () => {
           </View>
           <View className="mt-1 items-center">
             <Text className="m-2 font-bold text-green-500">About</Text>
-            <View className="mr-4 flex h-20 flex-row justify-center">
+            <View className="mr-2 flex h-20 flex-row justify-center">
               <AboutItem
                 name="weight"
                 className="border-r-[1px] border-r-gray-200 p-2"
-                extraInfo={{ Icon: Plus, value: 4 }}
+                extraInfo={{ Icon: WeightScale, value: '6,7 kg' }}
               />
               <AboutItem
                 name="Height"
                 className="flex items-center justify-center border-r-[1px] border-r-gray-200  p-2"
-                extraInfo={{ Icon: Plus, value: 4 }}
+                extraInfo={{ Icon: Ruler, value: '60 cm' }}
               />
               <AboutItem
                 name="Moves"
@@ -77,7 +79,7 @@ export const PokemonInfo = () => {
 
 interface extraInfoType {
   Icon: ({ color, ...props }: SvgProps) => JSX.Element;
-  value: number;
+  value: string;
 }
 
 interface AboutProps {
@@ -89,13 +91,13 @@ function AboutItem({ name, className, extraInfo }: AboutProps) {
   const info = extraInfo as extraInfoType;
   return (
     <View className={className}>
-      {info?.value ? (
+      {info.value ? (
         <View className="flex flex-1 flex-row items-center ">
           <info.Icon />
-          <Text className="text-sm">6,9 kg</Text>
+          <Text className="mx-2 text-sm">{info.value}</Text>
         </View>
       ) : (
-        <View className="flex-1">
+        <View className="mx-2 flex-1">
           {(extraInfo as string[]).map((item, index) => (
             <Text key={item + '' + index} className="text-sm">
               {item}
