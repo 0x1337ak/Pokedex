@@ -6,7 +6,7 @@ import { getQueryKey, pokemonListType } from '../common';
 type pokemonType = { name: string; url: string };
 type Response = pokemonType[];
 
-export function getPokemonListTypes(): Promise<Response> {
+function getPokemonListTypes(): Promise<Response> {
   return pokemonListType({ url: '?offset=0&limit=20', method: 'GET' }).then(
     (response) => response.data.results
   );

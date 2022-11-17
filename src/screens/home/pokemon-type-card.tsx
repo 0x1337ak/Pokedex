@@ -4,7 +4,7 @@ import type { PokemonType } from '@/api';
 import { pokemonTypeSprites } from '@/api';
 import { Image, Text, View } from '@/ui';
 
-export const Category = (typeInfo: PokemonType) => {
+export const PokemonTypeCard = (typeInfo: PokemonType) => {
   return (
     <View className="m-1 w-[30%] overflow-hidden  rounded-lg bg-gray-200">
       <View className="h-14  p-1">
