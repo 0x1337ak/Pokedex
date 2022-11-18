@@ -1,18 +1,18 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
+import type { PokemonType } from '@/api';
 import { Image, Pressable, Text, View } from '@/ui';
-export type PokemonProps = {
-  name: string;
-  url: string;
-};
-export const PokemonCard = (pokeInfo: PokemonProps & { index: number }) => {
+
+export type PokemonProps = PokemonType & { index: number };
+export const PokemonCard = (pokeInfo: PokemonProps) => {
   const navigator = useNavigation();
+
   return (
     <View className="m-2 flex h-auto w-28  overflow-hidden rounded-xl border-2 border-green-400 bg-gray-100">
       <Pressable
         onPress={() => {
-          navigator.navigate('PokemonInfo');
+          navigator.navigate('PokemonInfo', { name: pokeInfo.name });
         }}
       >
         <View className=" flex-1">
@@ -25,7 +25,7 @@ export const PokemonCard = (pokeInfo: PokemonProps & { index: number }) => {
             resizeMode="contain"
             className="h-full w-full"
             source={{
-              uri: '',
+              uri: `https://img.pokemondb.net/sprites/home/normal/${pokeInfo.name}.png`,
             }}
           />
         </View>

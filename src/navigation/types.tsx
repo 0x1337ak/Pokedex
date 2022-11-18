@@ -6,11 +6,11 @@ export type RootStackParamList = HomeStackParamList; //  & FooStackParamList & B
 // very important to type check useNavigation hook
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends HomeStackParamList {}
   }
 }
 
-export type RouteProp<T extends keyof RootStackParamList> = NRouteProp<
-  RootStackParamList,
+export type RouteProp<T extends keyof HomeStackParamList> = NRouteProp<
+  HomeStackParamList,
   T
 >;

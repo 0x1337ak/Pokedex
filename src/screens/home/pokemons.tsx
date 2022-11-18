@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { FlatList } from 'react-native-gesture-handler';
 
+import type { PokemonType } from '@/api';
 import { usePokemonList } from '@/api/home/use-pokemons';
 import { EmptyList, Input, View } from '@/ui';
 
-import type { PokemonProps } from './pokemon-card';
 import { PokemonCard } from './pokemon-card';
 
 export const Pokemons = () => {
   const { data, isLoading } = usePokemonList();
   const renderItem = React.useCallback(
-    ({ item, index }: { item: PokemonProps; index: number }) => (
+    ({ item, index }: { item: PokemonType; index: number }) => (
       <PokemonCard {...item} index={index} />
     ),
     []

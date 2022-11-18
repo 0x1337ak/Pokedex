@@ -1,16 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { APIProvider } from '@/api';
-
 import { Pokemons } from './pokemons';
 
-export const Home = () => {
+export const HomeScreen = () => {
   return (
     <View>
-      <APIProvider>
-        <Pokemons />
-      </APIProvider>
+      <Pokemons />
     </View>
   );
 };
