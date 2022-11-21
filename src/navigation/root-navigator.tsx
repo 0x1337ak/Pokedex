@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { APIProvider } from '@/api';
+
 import { HomeNavigator } from './home-navigator';
 import { NavigationContainer } from './navigation-container';
 
@@ -9,6 +11,8 @@ export const Root = () => {
 
 export const RootNavigator = () => (
   <NavigationContainer>
-    <Root />
+    <APIProvider>
+      <Root />
+    </APIProvider>
   </NavigationContainer>
 );

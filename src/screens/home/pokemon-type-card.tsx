@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import type { PokemonType } from '@/api';
-import { pokemonTypeSprites } from '@/api';
 import { Image, Text, View } from '@/ui';
 
 export const PokemonTypeCard = (typeInfo: PokemonType) => {
@@ -14,7 +13,7 @@ export const PokemonTypeCard = (typeInfo: PokemonType) => {
         <Image
           className="h-full w-full"
           source={{
-            uri: pokemonTypeSprites[typeInfo.name],
+            uri: '',
           }}
           resizeMode="contain"
         />
