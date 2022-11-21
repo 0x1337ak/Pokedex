@@ -6,7 +6,7 @@ export type PokemonType = {
 export interface PokemonRootType {
   abilities: Ability[];
   base_experience: number;
-  forms: Form[];
+  forms: PropertyType[];
   game_indices: Index[];
   height: number;
   held_items: any[];
@@ -17,84 +17,53 @@ export interface PokemonRootType {
   name: string;
   order: number;
   past_types: any[];
-  species: Species;
+  species: PropertyType;
   sprites: Sprites;
   stats: PokemonStatType[];
-  types: Type[];
+  types: CategoryType[];
   weight: number;
 }
-
+interface PropertyType {
+  name: string;
+  url: string;
+}
 export interface Ability {
-  ability: Ability2;
+  ability: PropertyType;
   is_hidden: boolean;
   slot: number;
 }
 
-export interface Ability2 {
-  name: string;
-  url: string;
-}
-
-export interface Form {
-  name: string;
-  url: string;
-}
-
 export interface Index {
   game_index: number;
-  version: Version;
-}
-
-export interface Version {
-  name: string;
-  url: string;
+  version: PropertyType;
 }
 
 export interface PokemonMovesType {
-  move: Move;
+  move: PropertyType;
   version_group_details: VersionGroupDetail[];
-}
-
-export interface Move {
-  name: string;
-  url: string;
 }
 
 export interface VersionGroupDetail {
   level_learned_at: number;
-  move_learn_method: MoveLearnMethod;
-  version_group: VersionGroup;
+  move_learn_method: PropertyType;
+  version_group: PropertyType;
 }
 
-export interface MoveLearnMethod {
-  name: string;
-  url: string;
-}
-
-export interface VersionGroup {
-  name: string;
-  url: string;
-}
-
-export interface Species {
-  name: string;
-  url: string;
-}
-
+type SpriteURlType = string | null | undefined;
 interface Sprites {
-  back_default: string | null | undefined;
-  back_female: string | null | undefined;
-  back_shiny: string | null | undefined;
-  back_shiny_female: string | null | undefined;
-  front_default: string | null | undefined;
-  front_female: string | null | undefined;
-  front_shiny: string | null | undefined;
-  front_shiny_female: string | null | undefined;
-  other: Other;
+  back_default: SpriteURlType;
+  back_female: SpriteURlType;
+  back_shiny: SpriteURlType;
+  back_shiny_female: SpriteURlType;
+  front_default: SpriteURlType;
+  front_female: SpriteURlType;
+  front_shiny: SpriteURlType;
+  front_shiny_female: SpriteURlType;
+  other: OtherType;
   versions: Versions;
 }
 
-interface Other {
+interface OtherType {
   dream_world: DreamWorld;
   home: Home;
   'official-artwork': OfficialArtwork;
@@ -330,12 +299,7 @@ export interface PokemonStatNameType {
   url: string;
 }
 
-export interface Type {
+export interface CategoryType {
   slot: number;
-  type: Type2;
-}
-
-export interface Type2 {
-  name: string;
-  url: string;
+  type: PropertyType;
 }

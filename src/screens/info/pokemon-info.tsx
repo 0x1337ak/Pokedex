@@ -1,5 +1,5 @@
-import { useRoute } from '@react-navigation/native';
-import React from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import React, { useEffect } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import type { SvgProps } from 'react-native-svg';
 
@@ -14,8 +14,12 @@ import { PokemonStatsBar } from './pokemon-stat-bar';
 type paramsType = { name: string };
 export const PokemonInfoScreen = () => {
   const params = useRoute().params as paramsType;
+  const navigate = useNavigation();
   const { data, isLoading } = usePokemon(params?.name);
 
+  useEffect(() => {
+    navigate.setOptions({ title: params.name });
+  }, [navigate, params.name]);
   return (
     <ScrollView>
       <View className="h-full w-full  bg-green-400">
@@ -76,7 +80,7 @@ export const PokemonInfoScreen = () => {
               </View>
               <View className="w-full p-2">
                 {data?.stats.map((item) => (
-                  <PokemonStatsBar stats={item} />
+                  <PokemonStatsBar key={item.stat.name} stats={item} />
                 ))}
               </View>
             </View>

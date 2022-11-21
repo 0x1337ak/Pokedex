@@ -18,7 +18,19 @@ export const HomeNavigator = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="PokemonInfo" component={PokemonInfoScreen} />
+      <Stack.Screen
+        name="PokemonInfo"
+        component={PokemonInfoScreen}
+        options={{
+          headerStyle: {
+            backgroundColor: '#4ADE80',
+          },
+          headerTitleStyle: {
+            color: '#f1f1f1',
+          },
+          headerShadowVisible: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };
