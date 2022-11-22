@@ -1,11 +1,12 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
+import { FadeIn, FadeInUp } from 'react-native-reanimated';
 import type { SvgProps } from 'react-native-svg';
 
 import type { PokemonMovesType } from '@/api';
 import { usePokemon } from '@/api';
-import { EmptyList, Image, Text, View } from '@/ui';
+import { AnimView, EmptyList, Image, Text, View } from '@/ui';
 import { Ruler } from '@/ui/icons/ruler';
 import { WeightScale } from '@/ui/icons/weight-scale';
 
@@ -22,7 +23,10 @@ export const PokemonInfoScreen = () => {
   }, [navigate, params.name]);
   return (
     <ScrollView>
-      <View className="h-full w-full  bg-green-400">
+      <AnimView
+        className="h-full w-full  bg-green-400"
+        entering={FadeIn.duration(500)}
+      >
         <View className="h-[30vh] ">
           <Image
             resizeMode="contain"
@@ -86,7 +90,7 @@ export const PokemonInfoScreen = () => {
             </View>
           </View>
         )}
-      </View>
+      </AnimView>
     </ScrollView>
   );
 };
@@ -104,7 +108,7 @@ interface AboutProps {
 function AboutItem({ name, className, extraInfo }: AboutProps) {
   const info = extraInfo as extraInfoType;
   return (
-    <View className={className}>
+    <AnimView className={className} entering={FadeInUp.delay(400)}>
       {info.value ? (
         <View className="flex flex-1 flex-row items-center">
           <info.Icon />
@@ -120,6 +124,6 @@ function AboutItem({ name, className, extraInfo }: AboutProps) {
         </View>
       )}
       <Text className="text-center text-sm text-gray-600">{name}</Text>
-    </View>
+    </AnimView>
   );
 }
